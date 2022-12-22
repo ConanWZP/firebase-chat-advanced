@@ -1,0 +1,78 @@
+.userChat {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  cursor: pointer;
+
+
+
+
+  &:hover {
+    background-color: #3c3965;
+  }
+
+  .userAvatar {
+
+    position: relative;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .userStatus {
+      position: absolute;
+      outline: 2px solid white;
+      bottom: 10px;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .online {
+      background-color: #34eb52;
+    }
+
+    .offline {
+      background-color: #eb4034;
+    }
+  }
+
+
+
+  .userChatInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+
+    span {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    p {
+      font-size: 14px;
+      color: lightgray;
+    }
+  }
+}
+
+
+.selectedChat {
+  background-color: rgba(60, 57, 101, 0.44);
+}
+
+.newMessage {
+  background-color: #3f87f5;
+  padding: 2px 4px;
+  border-radius: 10px;
+
+}
+
+.none {
+  display: none;
+}

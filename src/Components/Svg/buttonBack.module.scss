@@ -1,0 +1,8 @@
+.button {
+  width: 35px;
+  cursor: pointer;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
