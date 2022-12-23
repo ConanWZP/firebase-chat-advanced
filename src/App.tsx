@@ -75,7 +75,7 @@ const App = () => {
 
 
     return (
-        <HashRouter>
+        <BrowserRouter>
             {/*<Routes>
                 <Route path={'/'} element={<Home />}/>
                 <Route path={'/register'} element={<Register/>}/>
@@ -113,7 +113,7 @@ const App = () => {
 
             }
 
-        </HashRouter>
+        </BrowserRouter>
     );
 };
 
