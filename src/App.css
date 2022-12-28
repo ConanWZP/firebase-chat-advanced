@@ -66,10 +66,13 @@ nav {
 }
 
 .chats {
-    height: 400px;
-
+    /*height: auto;*/
+    overflow-y: auto;
     background-color: transparent;
     border-radius: 0 0 0 10px;
+
+
+
 }
 
 

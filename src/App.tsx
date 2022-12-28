@@ -26,7 +26,7 @@ const App = () => {
     }, [a])*/
 
 
-    useEffect( () => {
+    useEffect(() => {
         //dispatch(setUser(null))
         // @ts-ignore
 
@@ -44,33 +44,32 @@ const App = () => {
         // из firebase' узнать онлайн или оффлайн, если оффлайн, то setUser(null)
 
 
-
-       // dispatch(setUser(null))
-      //  dispatch(changeStateOnAuth())
+        // dispatch(setUser(null))
+        //  dispatch(changeStateOnAuth())
         dispatch(changeStateOnAuth())
-      //  dispatch(initializeApp())
+        //  dispatch(initializeApp())
 
 
     }, [])
-/*
-    const checkus = () => {
-        let abc = {}
-        if (abc) {
-           // console.log('12353')
+    /*
+        const checkus = () => {
+            let abc = {}
+            if (abc) {
+               // console.log('12353')
+            }
         }
-    }
-    checkus()
+        checkus()
 
-    const ProtectedRoute: FC<any> = ({children}) => {
-        if (!user) {
-            return <Navigate to="/login"/>;
-        }
+        const ProtectedRoute: FC<any> = ({children}) => {
+            if (!user) {
+                return <Navigate to="/login"/>;
+            }
 
-        return children
-    };*/
+            return children
+        };*/
 
     if (loading) {
-        return <Loader />
+        return <Loader/>
     }
 
 
@@ -85,9 +84,7 @@ const App = () => {
             </Routes>*/}
             {
                 user ?
-
                     <Routes>
-
                         {privateRoutes.map(route =>
                             <Route key={route.path} path={'/'} element={<LayoutPrivate/>}>
                                 <Route path={route.path} element={<route.element/>}/>
@@ -110,9 +107,7 @@ const App = () => {
                         <Route path={'/*'} element={<Navigate to={LOGIN_ROUTE}/>}/>
                         <Route path={'*'} element={<Navigate to={LOGIN_ROUTE}/>}/>
                     </Routes>
-
             }
-
         </BrowserRouter>
     );
 };

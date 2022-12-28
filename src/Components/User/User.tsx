@@ -27,14 +27,14 @@ const User: FC<UserProps> = ({user, handleSelectUser, user1, chat}) => {
     useEffect(() => {
         let unsub = onSnapshot(doc(dataBase, 'lastMessage', id), (snapshot) => {
             setLastMessage(snapshot.data())
-           // console.log(chat)
+            // console.log(chat)
 
-                // removeUnread нужен для того чтобы, если сообщение пришло от пользователя с которым сейчас открыт диалог
-                // иконка new в sidebar'e не появлялась
+            // removeUnread нужен для того чтобы, если сообщение пришло от пользователя с которым сейчас открыт диалог
+            // иконка new в sidebar'e не появлялась
             const removeUnread = async () => {
-                const lastMessageDoc =  await getDoc(doc(dataBase, 'lastMessage', id))
-              //  console.log(lastMessageDoc.data()?.from)
-               // console.log('user2', chat.uid)
+                const lastMessageDoc = await getDoc(doc(dataBase, 'lastMessage', id))
+                //  console.log(lastMessageDoc.data()?.from)
+                // console.log('user2', chat.uid)
                 if (lastMessageDoc.data()?.from === chat?.uid) {
                     await updateDoc(doc(dataBase, 'lastMessage', id), {
                         unread: false
@@ -45,7 +45,7 @@ const User: FC<UserProps> = ({user, handleSelectUser, user1, chat}) => {
         })
         return () => unsub()
     }, [chat?.uid])
-  //  console.log(lastMessage)
+    //  console.log(lastMessage)
 
     /*const handleClick =  (user: any) => {
         console.log(user)
@@ -69,7 +69,7 @@ const User: FC<UserProps> = ({user, handleSelectUser, user1, chat}) => {
                 {lastMessage ?
                     <p>
                         <strong>{lastMessage.from === user1 ? 'Вы: ' : null}</strong>
-                        {lastMessage?.textValue.length > 15 ? `${lastMessage?.textValue.slice(0, 15)}...`: lastMessage?.textValue}
+                        {lastMessage?.textValue.length > 15 ? `${lastMessage?.textValue.slice(0, 15)}...` : lastMessage?.textValue}
                     </p>
                     : null
                 }
@@ -77,8 +77,6 @@ const User: FC<UserProps> = ({user, handleSelectUser, user1, chat}) => {
 
             {lastMessage?.from !== user1 && lastMessage?.unread && <small
                 className={`${styles.newMessage} + ${!(lastMessage?.from !== user1 && lastMessage?.unread) ? styles.none : null}`}>New</small>}
-
-
             <div></div>
         </div>
     );
